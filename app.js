@@ -32,9 +32,11 @@ class LinkedList {
   }
 
   size() {
+    //if head is empty return 0
     if (this.head === null) {
       return "0 nodes";
     } else {
+      //otherwise return total number of nodes
       let head = this.head;
       let nodes = 1;
       while (head.nextNode !== null) {
@@ -42,6 +44,30 @@ class LinkedList {
         nodes++;
       }
       return `${nodes} nodes`;
+    }
+  }
+
+  headNode() {
+    //if head is empty return 0
+    if (this.head === null) {
+      return 0;
+    } else {
+      //otherwise return head node
+      return this.head;
+    }
+  }
+
+  tailNode() {
+    //if head is empty return 0
+    if (this.head === null) {
+      return 0;
+    } else {
+      //otherwise return last node
+      let tail = this.head;
+      while (tail.nextNode !== null) {
+        tail = tail.nextNode;
+      }
+      return tail;
     }
   }
 }
@@ -59,7 +85,9 @@ list.append(6);
 list.append(29);
 list.append(55);
 list.append(90);
+list.append(255);
+list.append(3000);
 list.prepend(15);
 
 console.log(list);
-console.log(list.size());
+console.log(list.tailNode());
