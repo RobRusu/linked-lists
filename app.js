@@ -18,6 +18,18 @@ class LinkedList {
       head.nextNode = new Node(value);
     }
   }
+
+  prepend(value) {
+    if (this.head === null) {
+      //if head is empty add node
+      this.head = new Node(value);
+    } else {
+      //otherwise add value to the start of the list and make it new head
+      let newHead = new Node(value);
+      newHead.nextNode = this.head;
+      this.head = newHead;
+    }
+  }
 }
 
 class Node {
@@ -27,8 +39,10 @@ class Node {
 }
 
 const list = new LinkedList();
-list.append(3);
-list.append(5);
-list.append(20);
 
-console.log(list.head);
+list.append(2);
+list.prepend(15);
+list.prepend(20);
+list.append(5);
+
+console.log(list);
