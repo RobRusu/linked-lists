@@ -30,6 +30,20 @@ class LinkedList {
       this.head = newHead;
     }
   }
+
+  size() {
+    if (this.head === null) {
+      return "0 nodes";
+    } else {
+      let head = this.head;
+      let nodes = 1;
+      while (head.nextNode !== null) {
+        head = head.nextNode;
+        nodes++;
+      }
+      return `${nodes} nodes`;
+    }
+  }
 }
 
 class Node {
@@ -41,8 +55,11 @@ class Node {
 const list = new LinkedList();
 
 list.append(2);
+list.append(6);
+list.append(29);
+list.append(55);
+list.append(90);
 list.prepend(15);
-list.prepend(20);
-list.append(5);
 
 console.log(list);
+console.log(list.size());
