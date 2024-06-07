@@ -32,8 +32,8 @@ class LinkedList {
   }
 
   size() {
-    //if head is empty return 0
     if (this.head === null) {
+      //if head is empty return 0
       return "0 nodes";
     } else {
       //otherwise return total number of nodes
@@ -48,8 +48,8 @@ class LinkedList {
   }
 
   headNode() {
-    //if head is empty return 0
     if (this.head === null) {
+      //if head is empty return 0
       return 0;
     } else {
       //otherwise return head node
@@ -58,8 +58,8 @@ class LinkedList {
   }
 
   tailNode() {
-    //if head is empty return 0
     if (this.head === null) {
+      //if head is empty return 0
       return 0;
     } else {
       //otherwise return last node
@@ -72,8 +72,8 @@ class LinkedList {
   }
 
   at(index) {
-    //if head is empty or input is invalid return message
     if (this.head === null || index <= 0 || !index) {
+      //if head is empty or input is invalid return message
       return "List is empty";
     } else {
       //otherwise return node at index
@@ -89,6 +89,22 @@ class LinkedList {
       // return last node
       if (index <= nodes + 1) return indexNode;
       if (index > nodes) return "Out of range";
+    }
+  }
+
+  pop() {
+    if (this.head === null) {
+      //if head is empty return 0
+      return 0;
+    } else {
+      //otherwise loop until end of node and remove penultimate next node reference
+      let indexNode = this.head;
+      let previousNode;
+      while (indexNode.nextNode !== null) {
+        previousNode = indexNode;
+        indexNode = indexNode.nextNode;
+      }
+      previousNode.nextNode = null;
     }
   }
 }
@@ -107,7 +123,6 @@ list.append(29);
 list.append(55);
 list.append(90);
 list.append(255);
-list.append(3000);
+list.pop();
 
-console.log(list.head);
 console.log(list.at(3));
