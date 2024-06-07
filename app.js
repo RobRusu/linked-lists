@@ -70,6 +70,27 @@ class LinkedList {
       return tail;
     }
   }
+
+  at(index) {
+    //if head is empty or input is invalid return message
+    if (this.head === null || index <= 0 || !index) {
+      return "List is empty";
+    } else {
+      //otherwise return node at index
+      let indexNode = this.head;
+      let nodes = 0;
+      while (indexNode.nextNode !== null) {
+        nodes++;
+        if (nodes == index) {
+          return indexNode;
+        }
+        indexNode = indexNode.nextNode;
+      }
+      // return last node
+      if (index <= nodes + 1) return indexNode;
+      if (index > nodes) return "Out of range";
+    }
+  }
 }
 
 class Node {
@@ -87,7 +108,6 @@ list.append(55);
 list.append(90);
 list.append(255);
 list.append(3000);
-list.prepend(15);
 
-console.log(list);
-console.log(list.tailNode());
+console.log(list.head);
+console.log(list.at(3));
