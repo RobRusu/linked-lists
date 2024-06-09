@@ -134,6 +134,7 @@ class LinkedList {
   find(value) {
     let indexNode = this.head;
     let nodes = 0;
+
     while (indexNode.nextNode !== null) {
       //loop through the list until value is found
       if (indexNode.value === value) {
@@ -148,6 +149,24 @@ class LinkedList {
     }
     //if value isn't found return null
     return null;
+  }
+
+  toString() {
+    let listString = "";
+    let node = this.head;
+
+    //if head is empty return message
+    if (node === null) {
+      return "List is empty.";
+    }
+
+    while (node.nextNode !== null) {
+      //loop through list and update listString
+      listString = `${listString}( ${node.value} ) -> `;
+      node = node.nextNode;
+    }
+    //return listString, last node value and null
+    return `${listString} ( ${node.value} ) -> ${node.nextNode}`;
   }
 }
 
@@ -165,5 +184,4 @@ list.append(29);
 list.append(55);
 list.append(90);
 list.append(255);
-
-console.log(list.find(6));
+console.log(list.toString());
