@@ -130,6 +130,25 @@ class LinkedList {
     //otherwise return false
     return false;
   }
+
+  find(value) {
+    let indexNode = this.head;
+    let nodes = 0;
+    while (indexNode.nextNode !== null) {
+      //loop through the list until value is found
+      if (indexNode.value === value) {
+        return nodes;
+      }
+      nodes++;
+      indexNode = indexNode.nextNode;
+    }
+    if (indexNode.value === value) {
+      //check last node for value
+      return nodes;
+    }
+    //if value isn't found return null
+    return null;
+  }
 }
 
 class Node {
@@ -147,4 +166,4 @@ list.append(55);
 list.append(90);
 list.append(255);
 
-console.log(list.contains());
+console.log(list.find(6));
