@@ -107,6 +107,29 @@ class LinkedList {
       previousNode.nextNode = null;
     }
   }
+
+  contains(value) {
+    let headNode = this.head;
+    if (this.head === null) {
+      //if head is empty return false
+      return false;
+    } else {
+      //otherwise loop and check if value is in the list
+      while (headNode.nextNode !== null) {
+        if (headNode.value === value) {
+          return true;
+        } else {
+          headNode = headNode.nextNode;
+        }
+      }
+    }
+    if (headNode.value === value) {
+      //if last node contains the value return true
+      return true;
+    }
+    //otherwise return false
+    return false;
+  }
 }
 
 class Node {
@@ -123,6 +146,5 @@ list.append(29);
 list.append(55);
 list.append(90);
 list.append(255);
-list.pop();
 
-console.log(list.at(3));
+console.log(list.contains());
